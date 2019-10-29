@@ -94,7 +94,7 @@ trait Provider
 	protected function oci($null)
 	{
 		try{
-			$conn = new \PDO("oci:dbname=".\config('tns'),
+			$this->_pdo = new \PDO("oci:dbname=".\config('tns'),
 				\config('db_user'), \config('db_password'));
 			$this->_pdo->exec("set names " . 'utf8');
 			$this->_pdo->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
